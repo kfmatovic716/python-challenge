@@ -15,7 +15,7 @@ with open(csvpath) as csvfile:
     
      # Read the header row first 
     csvheader = next(csvreader)
-    print(f"CSV Header: {csvheader}")
+    #print(f"CSV Header: {csvheader}")
 
      # Read each row of Date and Profit/Losses after the header
     for row in csvreader:
@@ -25,35 +25,27 @@ with open(csvpath) as csvfile:
     
 #Converts strings in profit_losses list to integers & append to PL_integers list
 #Use this list for calculation of average change in P/L
-print(profit_losses)
+#print(profit_losses)
 
 #Months
 total_months = len(months)  #Calculates total number of months in data    
 
 #Amount
-total_amount = sum(profit_losses)     #Calculates sum
+#Calculates total profit/losses
+total_amount = sum(profit_losses)     
 
 #P/L Change
-'''HUNTER ~ Set the first month elememt (NOT SURE IF CORRECT to do this way)'''
+#Set the first month elememt 
 PL_change.append(profit_losses[0]) 
 
 #Loop for appending the rest of the elements in 
-for x,y in zip(profit_losses[0:], profit_losses[1:]):
-    PL_change.append(y-x)
-
-'''HUNTER ~ tried converting to list comprehension but getting a syntax error
- i think it's because PL_change is not completely empty?
-#elements = zip(profit_losses[0:], profit_losses[1:]
-#PL_change = [(y-x) for x,y in elements]    '''
+for i,j in zip(profit_losses[0:], profit_losses[1:]):
+    PL_change.append(j-i)
 
 #To check if the elements appended above are correct
-print(PL_change) 
+#print(PL_change) 
 
 #Calculating average of changes in P/L (use PL_change list)
-'''HUNTER ~ are we supposed to match the average change from the README file  of the hw, which is $-2315.12.
-I got 7803.47!  I calculated manually in Excel and my answer is correct. Did I misunderstand something? Why is the number in README 
-is different?'''
-
 Average = mean(PL_change)
 
 #List conversion to dictionary to combine months and P/L changes
@@ -77,16 +69,7 @@ print(f"Greatest Decrease in Profits: {lowest_profit}, {months_PLchg[lowest_prof
 
 
 
-#DRAFT(delete later)
-#another option using function to calc avg
-#def average(amounts):
-#     total = sum(amounts)
-#     count = len(amounts)
-#     return total / count
 
-# Average = average(PL_change)
-    
-   
    
 
 
