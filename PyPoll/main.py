@@ -29,12 +29,10 @@ sorted_candidatelist = sorted(candidate)
 
 #Creates a new list of candidates without the duplicates
 candidates_summary = sorted(list(set(sorted_candidatelist)))
-#print(candidates_summary)
 
 #Creates a list of total counts for each candidate
 votecounts = [candidate.count(cand) for cand in candidates_summary]
 sorted_counts = sorted(votecounts)
-#print(sorted_counts)
 
 #Calculates total votes, same results as len(voters)
 totalvotes = sum(votecounts)  
@@ -50,7 +48,6 @@ Pct_Votes = [percentage(cand, totalvotes) for cand in votecounts]
 #Convert to dictionary to use in determining winner
 candidate_pctvotes = dict(zip(candidates_summary, Pct_Votes)) 
 sorted_candpctvotes = dict(sorted(candidate_pctvotes.items(), key=lambda item:item[1], reverse=True))
-#print(sorted_candpctvotes)
 
 # Determines the winner
 winner =  max(candidate_pctvotes.keys(), key=(lambda k: candidate_pctvotes[k]))
