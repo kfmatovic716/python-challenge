@@ -1,6 +1,6 @@
 # Python-challenge
 
-* PyBank is a Python script that analyzed the financial records of a company using  their data file called budget_data.csv. The given data consists of given amounts of profit and losses in a given month and year. Below are the results of the analysis:
+* PyBank is a Python script that analyzed the financial records of a company using  their data file called budget_data.csv. The given data consists of amounts of profit and losses from January 2010 to February 2017. Below are the results of the analysis:
 
     * There were 86 total number of months included in the dataset
 
